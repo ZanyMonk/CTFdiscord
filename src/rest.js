@@ -13,8 +13,9 @@ module.exports = {
             try {
                 console.log('Started refreshing application (/) commands.');
 
+                // @TODO clear previous commands for app and guild
                 await rest.put(
-                    Routes.applicationGuildCommands('893896245716865066', '893837502148923465'),
+                    Routes.applicationCommands('893896245716865066'),
                     { body: getCommands() },
                 );
 

@@ -5,11 +5,16 @@
 - Watch for notifications
 - Watch for new challenges
   
+## @TODO
+- [ ] Add unit tests & continuous integration
+- [ ] Add `/help` command
+
 ## Admin configuration
 These commands are only allowed to the server's administrators
 
 - [ ] `/get {option}`, show option description, current value and default value
 - [ ] `/set {option} {value}`, set given value to given option
+- [ ] `/sessions`, list current sessions
 
 ### Options
 - [ ] `notif_watcher_freq`, notification retrieval frequency in seconds. Default `60`
@@ -19,16 +24,17 @@ These commands are only allowed to the server's administrators
 ## By-user configuration
 Access token and CTFd API URL are saved independently for each user.
 
-Commands related to the whole team can be optionally allowed for users that aren't authenticated with `options.allow_team_cmd`.
+Commands related to the whole team can be optionally allowed for users that aren't authenticated with `options.allow_team_cmd`, if a valid access token has already been set for another member.
 
+These commands are only valid in private message channel with the bot
 - [ ] `/session`, show info about current session
 - [ ] `/session {ctf_url} [{token}]`, initiate a new session on given url
 - [ ] `/token {token}`, set your access token for this session
 
 ## Slash commands
-  - [ ] `/flag`, validate flags
-  - [ ] `/score`, show scoreboard
-  - [ ] `/challs`, list challenges
+  - [ ] `/flag`, validate a flag
+  - [ ] `/score`, show the scoreboard
+  - [ ] `/challs [{category}]`, list all challenges (in the given category)
     - [ ] `/chall {chall}`, show details about given chall
     - [ ] `/solves {chall}`, show solves of given chall
 

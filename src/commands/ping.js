@@ -2,6 +2,7 @@ module.exports = {
     name: 'hello',
     description: 'A useless command',
     func: (interaction) => {
-        return 'Hello ' + interaction.member.user.username + ' !';
+        const user = 'member' in interaction ? interaction.member.user : interaction.user;
+        return 'Hello ' + user.username + ' !';
     }
 };
