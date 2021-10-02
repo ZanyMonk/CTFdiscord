@@ -1,0 +1,26 @@
+{
+  "name": "ctfdiscord",
+  "version": "1.0.0",
+  "description": "Discord bot for CTFd team management",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZanyMonk/CTFdiscord.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "ctfd",
+    "ctf",
+    "team"
+  ],
+  "author": "Xartrick, zM_",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZanyMonk/CTFdiscord/issues"
+  },
+  "homepage": "https://github.com/ZanyMonk/CTFdiscord#readme"
+}
