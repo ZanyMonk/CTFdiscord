@@ -1,9 +1,9 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { getCommands } = require('./commands');
+const { getAppCommands, getGuildCommands } = require('./commands');
 
 module.exports = {
-    refreshSlashCommands (token) {
+    refreshSlashCommands (token, appId, guildId) {
         // noinspection JSClosureCompilerSyntax,JSCheckFunctionSignatures
         const rest = new REST({
             version: '9'
@@ -13,11 +13,17 @@ module.exports = {
             try {
                 console.log('Started refreshing application (/) commands.');
 
-                // @TODO clear previous commands for app and guild
-                await rest.put(
-                    Routes.applicationCommands('893896245716865066'),
-                    { body: getCommands() },
-                );
+                await rest.put(Routes.applicationCommands(appId), {
+                    body: getAppCommands()
+                }).then((res) => {
+                    console.log('App commands:', res);
+                });
+
+                await rest.put(Routes.applicationGuildCommands(appId, guildId), {
+                    body: getGuildCommands()
+                }).then((res) => {
+                    console.log('Guild commands:', res);
+                });
 
                 console.log('Successfully reloaded application (/) commands.');
             } catch (error) {

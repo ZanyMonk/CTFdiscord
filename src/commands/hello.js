@@ -1,8 +1,9 @@
 module.exports = {
     name: 'hello',
     description: 'A useless command',
+    guildRelated: true,
     func: (interaction) => {
-        const user = 'member' in interaction ? interaction.member.user : interaction.user;
+        const user = interaction.inGuild() ? interaction.member.user : interaction.user;
         return 'Hello ' + user.username + ' !';
     }
 };
